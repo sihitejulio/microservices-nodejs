@@ -1,0 +1,28 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "mocha": true
+  },
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "semi": 0,
+    "no-use-before-define": 0,
+    "no-shadow": 0,
+    "max-len": 0,
+    "array-callback-return": 0,
+    "import/no-extraneous-dependencies": 0,
+    "consistent-return": 0,
+    "no-restricted-globals": 0,
+    "switch-colon-spacing": 0,
+    "semi-style": 0,
+    "function-paren-newline": 0,
+    "getter-return": 0,
+    "for-direction": 0,
+    "no-buffer-constructor": 0,
+    "prefer-destructuring": 0,
+    "comma-dangle": 0,
+    "space-before-function-paren": 0
+  }
+}
