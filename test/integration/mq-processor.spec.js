@@ -1,8 +1,8 @@
 const chai = require('chai')
 const expect = chai.expect
 
-const { setChai } = require('../helpers/test-suite-setup')
-const processTestMessage = require('../../../src/event-processors/sample-message-processor')
+const { setChai } = require('../unit/helpers/test-suite-setup')
+const processTestMessage = require('../../src/mq-processor-usage')
 
 const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)

@@ -22,7 +22,7 @@
   "nodemonConfig": {
     "ignore": [
       "test/*",
-      "docs/*"
+      "api-docs/*"
     ],
     "delay": "2500"
   },

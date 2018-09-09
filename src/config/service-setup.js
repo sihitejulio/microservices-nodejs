@@ -1,7 +1,7 @@
 const packageJson = require('./../../package.json')
 const path = require('path')
 const Joi = require('joi')
-const processTestMessage = require('./../event-processors/sample-message-processor')
+const processTestMessage = require('./../mq-processor-usage')
 const { routeMiddleware } = require('./../middleware/route-middleware')
 
 const dbConfig = require('./db-config')

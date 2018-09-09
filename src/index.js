@@ -15,7 +15,7 @@ async function bootstrapService (app) {
     apifiedApp = await serviceBootstrapper(serviceSetup, mqListeners, app)
     return apifiedApp
   } catch (err) {
-    logger.error('Failed in makeApifiedApp %s ', err)
+    logger.error('Failed in bootstrapService %s ', err)
     throw err
   }
 }
