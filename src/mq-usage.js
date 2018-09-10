@@ -2,13 +2,13 @@ const bp = require('@apifie/node-microservice')
 
 async function sendRequest(exchange, routingKey) {
   // API : sendRequest (exchange, routingKey, event, metadata, data)
-  const result = await bp.getMqClient().sendRequest(exchange, routingKey, 'yyy', {meta: 'data'}, {da: 'ta'})
+  const result = await bp.getMqClient().sendRequest(exchange, routingKey, 'yyy', { meta: 'data' }, { da: 'ta' })
   return result
 }
 
 async function sendResponse(exchange, routingKey) {
   // API : sendResponse (exchange, routingKey, event, metadata, data, isTargeted)
-  const result = await bp.getMqClient().sendResponse(exchange, routingKey, 'yyy', {meta: 'data'}, {da: 'ta'}, false)
+  const result = await bp.getMqClient().sendResponse(exchange, routingKey, 'yyy', { meta: 'data' }, { da: 'ta' }, false)
   return result
 }
 
