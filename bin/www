@@ -7,7 +7,7 @@ const http = require('http');
 console.log('Starting app from node express folder')
 let app = express()
 const port = normalizePort(process.env.PORT || '3000');
-//const port = 3000 + Math.floor(Math.random() * 100)
+// const port = 3000 + Math.floor(Math.random() * 100)
 app.set('port', port);
 
 const server = http.createServer(app);
@@ -22,7 +22,9 @@ async function startBlueprint() {
     app = await bootstrapService(app)
     console.log('Your app is apified.Ready to use on port %d', port)
     console.log('****************************************************************')
-    process.env.GENERATE_DOCS && await killServer(); 
+    if (process.env.GENERATE_DOCS) {
+      killServer();
+    }
   } catch (err) {
     console.log('App startup failed. Shutting down server')
     killServer();
@@ -39,7 +41,7 @@ function killServer() {
       process.exit(process.env.GENERATE_DOCS ? 0 : 1)
     })
   } catch (err) {
-    console.log('error in shutting down the server %s', err)
+    console.log('Error in shutting down the server %s', err)
   }
 }
 
