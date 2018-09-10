@@ -9,6 +9,7 @@
     "start": "env $(cat .env | xargs) NODE_ENV=development nodemon ./bin/www",
     "test": "npm run coverage",
     "test:integrationall": "npm run db:migrate && npm run test:integration",
+    "generate:doc": "env $(cat .env | xargs) GENERATE_DOCS=true node ./bin/www",
     "db:migrate": "node_modules/.bin/cross-env NODE_ENV=test-integration node_modules/.bin/sequelize db:migrate --config src/config/db-config.js",
     "test:integration": "env $(cat .env | xargs) NODE_ENV=test nyc mocha \"test/integration/**/*.spec.js\" --exit",
     "test:integrationwatch": "env $(cat .env | xargs) NODE_ENV=test nyc mocha \"**/test/integration/**/*.spec.js\" --watch",

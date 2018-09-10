@@ -3,7 +3,7 @@
 // use this swagger instance if u want to add the schema, parameter, and references
 
 module.exports = [{
-  path: 'testingRoute',
+  path: '/testingRoute',
   method: 'post',
   handler: (request, reply) => {
     if (request) { reply.json({ name: 'testingRoute post' }) }

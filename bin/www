@@ -22,15 +22,24 @@ async function startBlueprint() {
     app = await bootstrapService(app)
     console.log('Your app is apified.Ready to use on port %d', port)
     console.log('****************************************************************')
+    process.env.GENERATE_DOCS && await killServer(); 
   } catch (err) {
     console.log('App startup failed. Shutting down server')
-    try {
-      server.close(() => {
-        process.exit(1)
-      })
-    } catch (err) {
-      console.log('error in shutting down the server %s', err)
-    }
+    killServer();
+  }
+}
+
+/**
+ * Close server
+ */
+
+function killServer() {
+  try {
+    server.close(() => {
+      process.exit(process.env.GENERATE_DOCS ? 0 : 1)
+    })
+  } catch (err) {
+    console.log('error in shutting down the server %s', err)
   }
 }
 

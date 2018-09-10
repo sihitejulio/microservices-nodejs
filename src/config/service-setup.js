@@ -2,7 +2,6 @@ const packageJson = require('./../../package.json')
 const path = require('path')
 const Joi = require('joi')
 const processTestMessage = require('./../mq-processor-usage')
-const { routeMiddleware } = require('./../middleware/route-middleware')
 
 const dbConfig = require('./db-config')
 
@@ -59,7 +58,7 @@ const serviceSetup = {
   },
   routes: {
     enabled: true,
-    middleware: [routeMiddleware]
+    routeFolderPath: path.join(__dirname, '../routes')
   },
   serviceConfig: {
     TO_BE_SHARED: process.env.TO_BE_SHARED,
