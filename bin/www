@@ -20,7 +20,7 @@ server.listen(port, async () => {
 
 async function startBlueprint() {
   try {
-    app = await bootstrapService(app)
+    app = await bootstrapService(app, process.env.GENERATE_DOCS)
     console.log('Your app is apified.Ready to use on port %d', port)
     console.log('****************************************************************')
     if (process.env.GENERATE_DOCS) {
