@@ -4,15 +4,19 @@ const cls = require('cls-hooked')
 cls.createNamespace('default')
 
 const { serviceSetup, mqListeners } = require('./config/service-setup')
-const { logger, serviceBootstrapper } = require('@apifie/node-microservice')
+const { logger, serviceBootstrapper, getUtils } = require('@apifie/node-microservice')
 
 let apifiedApp
 
-async function bootstrapService (app) {
+async function bootstrapService (app, generateApiDocs) {
   logger.info('Requesting service bootstrap for your app')
 
   try {
     apifiedApp = await serviceBootstrapper(serviceSetup, mqListeners, app)
+    if(generateApiDocs) {
+      logger.info('Requesting generation of API Docs')
+      await getUtils().generateApiDocs(apifiedApp)
+    }
     return apifiedApp
   } catch (err) {
     logger.error('Failed in bootstrapService %s ', err)
