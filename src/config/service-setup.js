@@ -56,6 +56,10 @@ const serviceSetup = {
     enabled: true,
     API_TIMEOUT: 60 * 1000 // In miliseconds
   },
+  apiDocsPath: {
+    postmanSpecPath: `${process.cwd()}/api-docs/postman/`,
+    swaggerSpecPath: `${process.cwd()}/api-docs/swagger-specs/`
+  },
   routes: {
     enabled: true,
     routeFolderPath: path.join(__dirname, '../routes')
