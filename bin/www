@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+require('dotenv').config()
 const express = require('express')
 const { bootstrapService } = require('./../src/index')
 const debug = require('debug')('node-app:server');

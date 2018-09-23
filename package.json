@@ -6,16 +6,16 @@
   "private": true,
   "scripts": {
     "start:prod": "node ./bin/www",
-    "start": "env $(cat .env | xargs) NODE_ENV=development nodemon ./bin/www",
+    "start": "node_modules/.bin/cross-env NODE_ENV=development nodemon ./bin/www",
     "test": "npm run coverage",
     "test:integrationall": "npm run db:migrate && npm run test:integration",
-    "apidocs:generate": "env $(cat .env | xargs) GENERATE_DOCS=true node ./bin/www",
+    "apidocs:generate": "node_modules/.bin/cross-env GENERATE_DOCS=true node ./bin/www",
     "db:migrate": "node_modules/.bin/cross-env NODE_ENV=test-integration node_modules/.bin/sequelize db:migrate --config src/config/db-config.js",
-    "test:integration": "env $(cat .env | xargs) NODE_ENV=test nyc mocha \"test/integration/**/*.spec.js\" --exit",
-    "test:integrationwatch": "env $(cat .env | xargs) NODE_ENV=test nyc mocha \"**/test/integration/**/*.spec.js\" --watch",
-    "coverage": "NODE_ENV=test nyc npm run test:unit",
-    "test:unit": "env $(cat .env | xargs) NODE_ENV=test mocha \"test/unit/**/*.spec.js\" --exit",
-    "test:unitwatch": "env $(cat .env | xargs) NODE_ENV=test nyc mocha \"**/test/unit/**/*.spec.js\" --watch",
+    "test:integration": "node_modules/.bin/cross-env NODE_ENV=test nyc mocha \"test/integration/**/*.spec.js\" --exit",
+    "test:integrationwatch": "node_modules/.bin/cross-env NODE_ENV=test nyc mocha \"**/test/integration/**/*.spec.js\" --watch",
+    "coverage": "node_modules/.bin/cross-env NODE_ENV=test nyc npm run test:unit",
+    "test:unit": "node_modules/.bin/cross-env NODE_ENV=test mocha \"test/unit/**/*.spec.js\" --exit",
+    "test:unitwatch": "node_modules/.bin/cross-env NODE_ENV=test nyc mocha \"**/test/unit/**/*.spec.js\" --watch",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "prepush": "npm run lint && npm run coverage"
@@ -28,7 +28,8 @@
     "delay": "2500"
   },
   "dependencies": {
-    "@apifie/node-microservice": "0.0.3"
+    "@apifie/node-microservice": "0.0.1",
+    "dotenv": "^6.0.0"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "4.1.5",
