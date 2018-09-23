@@ -9,6 +9,7 @@
     "start": "node_modules/.bin/cross-env NODE_ENV=development nodemon ./bin/www",
     "test": "npm run coverage",
     "test:integrationall": "npm run db:migrate && npm run test:integration",
+    "apidocs:generate": "node_modules/.bin/cross-env GENERATE_DOCS=true node ./bin/www",
     "db:migrate": "node_modules/.bin/cross-env NODE_ENV=test-integration node_modules/.bin/sequelize db:migrate --config src/config/db-config.js",
     "test:integration": "node_modules/.bin/cross-env NODE_ENV=test nyc mocha \"test/integration/**/*.spec.js\" --exit",
     "test:integrationwatch": "node_modules/.bin/cross-env NODE_ENV=test nyc mocha \"**/test/integration/**/*.spec.js\" --watch",
@@ -27,7 +28,7 @@
     "delay": "2500"
   },
   "dependencies": {
-    "@apifie/node-microservice": "0.0.1",
+    "@apifie/node-microservice": "0.0.3",
     "dotenv": "^6.0.0"
   },
   "devDependencies": {
