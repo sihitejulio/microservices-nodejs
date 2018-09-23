@@ -28,7 +28,7 @@
     "delay": "2500"
   },
   "dependencies": {
-    "@apifie/node-microservice": "0.0.2"
+    "@apifie/node-microservice": "0.0.3"
   },
   "devDependencies": {
     "babel-plugin-istanbul": "4.1.5",
