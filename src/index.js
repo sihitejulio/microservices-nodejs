@@ -15,7 +15,7 @@ async function bootstrapService (app, generateApiDocs) {
     apifiedApp = await serviceBootstrapper(serviceSetup, mqListeners, app)
     if (generateApiDocs) {
       logger.info('Requesting generation of API Docs')
-      await getUtils().generateApiDocs(apifiedApp, serviceSetup.apiDocsPath)
+      await getUtils().generateApiDocs(serviceSetup.apiDocsPath)
     }
     return apifiedApp
   } catch (err) {
