@@ -1,8 +1,8 @@
 # full-feature-micro-service-example Microservice
 
 TODO : Update these badge links
-[![pipeline status](https://gitlab.com/apifie/services/full-feature-micro-service-example/badges/master/pipeline.svg)](https://gitlab.com/apifie/services/full-feature-micro-service-example/commits/master)
-[![coverage report](https://gitlab.com/apifie/services/full-feature-micro-service-example/badges/master/coverage.svg)](https://gitlab.com/apifie/services/full-feature-micro-service-example/commits/master)
+[![pipeline status](https://gitlab.com/apifie/nodems/examples/full-feature-micro-service-example/badges/master/pipeline.svg)](https://gitlab.com/apifie/nodems/examples/full-feature-micro-service-example/commits/master)
+[![coverage report](https://gitlab.com/apifie/nodems/examples/full-feature-micro-service-example/badges/master/coverage.svg)](https://gitlab.com/apifie/nodems/examples/full-feature-micro-service-example/commits/master)
 
 **Latest Stable Version : 1.0.0**
 
@@ -37,7 +37,7 @@ npm start
 
 TODO : Setup above check-boxes as per service need
 
-For all above details, refer to [NODE JS Blueprint documentation](https://gitlab.com/apifie/microservice-blueprint-nodejs/tree/master)
+For all above details, refer to [NODE JS Blueprint documentation](https://gitlab.com/apifie/nodems/node-microservice/wikis/home)
 
 ## Scope
 Define here the business scope and context for having this service.
@@ -159,4 +159,4 @@ Describe all the MQ events that are generated / relayed by this service
 
 ## Development team
 * **Maintainer(s)** : @mail2gauravkumar
-* **Team** : @cahrupriya, @lalitc, @diwakarsm
+* **Team** : @charu.priya, @lalit.rhombus, @diwakar-s-maurya
