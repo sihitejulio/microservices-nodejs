@@ -4,8 +4,8 @@ const chaiAsPromised = require('chai-as-promised')
 const expect = chai.expect
 chai.use(chaiAsPromised)
 
-const {startService} = require('./helpers/test-server')
-const {logger} = require('@apifie/node-microservice')
+const { startService } = require('./helpers/test-server')
+const { logger } = require('@apifie/node-microservice')
 const {
   sendRequest,
   sendResponse,
@@ -21,7 +21,7 @@ const sampleMessage = {
     exchange: 'full-feature-micro-service-example-1.0.0',
     routingKey: 'testkey'
   },
-  properties: {headers: {msgType: 'REQUEST'}, deliveryMode: 1},
+  properties: { headers: { msgType: 'REQUEST' }, deliveryMode: 1 },
   content: '{"event": "TEST_MESSAGE","data": {"someKey": "someValue"},"metadata" : {"appKey": "test-app-key","appContext": "test-app-context"}}'
 }
 
@@ -52,7 +52,7 @@ describe('When we use MQ API', async() => {
 
   it('We can send an incident message to incident exchange', async() => {
     const testService = await startService()
-    const res = await sendIncident(sampleMessage, {message: 'Test Incident'})
+    const res = await sendIncident(sampleMessage, { message: 'Test Incident' })
     logger.info('res = ', res)
     expect(res, 'message is successfully posted').not.to.be.null
     expect(res.exchange, 'message is posted to incident exchange').to.equal('incident-1.0.0')

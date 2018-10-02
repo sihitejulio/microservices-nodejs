@@ -23,6 +23,8 @@
     "no-buffer-constructor": 0,
     "prefer-destructuring": 0,
     "comma-dangle": 0,
-    "space-before-function-paren": 0
+    "space-before-function-paren": 0,
+    "import/no-dynamic-require": 0,
+    "global-require": 0
   }
 }
