@@ -16,8 +16,8 @@ function getExpressApp () {
   server.on('listening', onListening)
   server.listen(port)
   return {
-    app: app,
-    server: server
+    app,
+    server
   }
 }
 

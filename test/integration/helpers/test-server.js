@@ -1,8 +1,9 @@
 const cls = require('cls-hooked')
+
 const namespace = cls.createNamespace('default')
 
-const {bootstrapService} = require('../../../src')
-const {getExpressApp} = require('./test-app')
+const { bootstrapService } = require('../../../src')
+const { getExpressApp } = require('./test-app')
 const chai = require('chai')
 
 let server

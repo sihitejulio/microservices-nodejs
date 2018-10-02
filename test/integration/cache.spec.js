@@ -2,7 +2,7 @@ const chai = require('chai')
 
 const expect = chai.expect
 
-const {startService} = require('./helpers/test-server')
+const { startService } = require('./helpers/test-server')
 const {
   saveToCache,
   readFromCache,

@@ -2,7 +2,7 @@ const chai = require('chai')
 
 const expect = chai.expect
 
-const {startService} = require('./helpers/test-server')
+const { startService } = require('./helpers/test-server')
 const { getTracerClient, getCacheClient, getSqlDBClient } = require('@apifie/node-microservice')
 const { getMqClient, getMiddleware, getApiClient } = require('@apifie/node-microservice')
 const { getUtils, logger, errors } = require('@apifie/node-microservice')
