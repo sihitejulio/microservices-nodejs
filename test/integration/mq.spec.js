@@ -4,7 +4,6 @@ const chaiAsPromised = require('chai-as-promised')
 const expect = chai.expect
 chai.use(chaiAsPromised)
 
-const { startService } = require('./helpers/test-server')
 const { logger } = require('@apifie/node-microservice')
 const {
   sendRequest,
@@ -27,7 +26,6 @@ const sampleMessage = {
 
 describe('When we use MQ API', async() => {
   it('We can send a request message to correct exchange', async() => {
-    const testService = await startService()
     const res = await sendRequest('full-feature-micro-service-example-1.0.0', 'testkey')
     expect(res, 'message is successfully posted').not.to.be.null
     expect(res.exchange, 'message is posted to right exchange').to.equal('full-feature-micro-service-example-1.0.0')
@@ -35,7 +33,6 @@ describe('When we use MQ API', async() => {
   })
 
   it('We can send a response message to correct exchange', async() => {
-    const testService = await startService()
     const res = await sendResponse('full-feature-micro-service-example-1.0.0', 'testkey')
     expect(res, 'message is successfully posted').not.to.be.null
     expect(res.exchange, 'message is posted to right exchange').to.equal('full-feature-micro-service-example-1.0.0')
@@ -43,7 +40,6 @@ describe('When we use MQ API', async() => {
   })
 
   it('We can send a retry request message to correct exchange', async() => {
-    const testService = await startService()
     const res = await sendRetryRequest(sampleMessage)
     expect(res, 'message is successfully posted').not.to.be.null
     expect(res.exchange, 'message is posted to delayed exchange').to.equal('full-feature-micro-service-example-1.0.0-delayed')
@@ -51,7 +47,6 @@ describe('When we use MQ API', async() => {
   })
 
   it('We can send an incident message to incident exchange', async() => {
-    const testService = await startService()
     const res = await sendIncident(sampleMessage, { message: 'Test Incident' })
     logger.info('res = ', res)
     expect(res, 'message is successfully posted').not.to.be.null
