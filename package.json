@@ -30,7 +30,7 @@
     "delay": "2500"
   },
   "dependencies": {
-    "@apifie/node-microservice": "0.0.5",
+    "@apifie/node-microservice": "1.0.0",
     "dotenv": "^6.0.0",
     "chai-http": "4.2.0",
     "joi": "13.6.0"
