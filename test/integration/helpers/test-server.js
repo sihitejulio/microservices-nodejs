@@ -1,27 +1,15 @@
-const cls = require('cls-hooked')
-
-const namespace = cls.createNamespace('default')
-
 const { bootstrapService } = require('../../../src')
-const { getExpressApp } = require('./test-app')
+const express = require('../../../bin/www')
 const chai = require('chai')
 
 let server
 let app
-console.log('namespace ', namespace.get('default'))
+let testService
 
 function setChai () {
   console.log('Setting Chai keys')
   chai.config.proxyExcludedKeys.push('eventually')
   chai.config.proxyExcludedKeys.push('rejected')
-}
-
-async function startServer () {
-  console.log('Starting test app')
-  const res = getExpressApp()
-  // console.log('Inside start server ', res)
-  server = res.server
-  return res.app
 }
 
 async function stopServer () {
@@ -40,20 +28,17 @@ async function stopServer () {
 }
 
 async function startService () {
-  try {
-    const testService = await bootstrapService(app)
-    return testService
-  } catch (err) {
-    console.log('Some error in starting test service %j ', err)
-    throw err
-  }
+  return testService
 }
 
 before(async () => {
   console.log('In before test')
   setChai()
-  app = await startServer()
-  console.log('Got test express app in before ')
+  console.log('Starting test app')
+  server = express.server
+  app = express.app
+  testService = await bootstrapService(app)
+  console.log('Got test express app in before')
 })
 
 after(async () => {

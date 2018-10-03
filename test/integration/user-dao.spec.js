@@ -3,7 +3,6 @@ const { logger } = require('@apifie/node-microservice')
 
 const expect = chai.expect
 
-const { startService } = require('./helpers/test-server')
 const {
   createUser,
   updateUser,
@@ -12,10 +11,6 @@ const {
 } = require('../../src/dao/user-dao')
 
 describe('When we use SQL DB API', async () => {
-  before(async () => {
-    await startService()
-  })
-
   afterEach(async () => {
     await deleteUser('testemail')
   })
